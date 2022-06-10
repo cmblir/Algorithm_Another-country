@@ -1,4 +1,10 @@
+import heapq
 class Solution:
     def buildArray(self, nums: List[int]) -> List[int]:
-        tmp = [nums[i] for i in nums]
-        return tmp
+        n = len(nums)
+        for i in range(n):
+            nums[i] = nums[i] + (n *(nums[nums[i]]%n))
+        for i in range(n):
+            nums[i] = int(nums[i]/n)
+        
+        return nums
